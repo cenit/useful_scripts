@@ -1,8 +1,9 @@
-# WORK IN PROGRESS, STILL NOT WORKING
+#STILL NOT WORKING, BUT YOU CAN INSTALL DEPENDENCIES THROUGH yum IF YOU WANT, UNCOMMENTING A LINE AT THE END
+#AND SETTING TO true THE FOLLOWING DEFINITION
+BUILD_DEPENDENCIES=false
 
 
 # make sure to add ${BUILD_FOLDER}/bin to PATH and ${BUILD_FOLDER}/lib to LD_LIBRARY_PATH before starting
-
 
 BUILD_FOLDER=/shared/software/project/aladyn/gnuplot/build
 SOURCE_FOLDER=/shared/software/project/aladyn/gnuplot/source
@@ -13,6 +14,7 @@ mkdir ${BUILD_FOLDER}
 
 export PKG_CONFIG_PATH=${BUILD_FOLDER}/lib/pkgconfig
 
+if ( "$BUILD_DEPENDENCIES" = true ) then
 cd ${SOURCE_FOLDER}
 wget http://download.savannah.gnu.org/releases/freetype/freetype-2.5.5.tar.gz
 tar zxvf freetype-2.5.5.tar.gz
@@ -85,6 +87,15 @@ cd wxWidgets-3.0.2
 ./configure --prefix="${BUILD_FOLDER}"
 make
 make install
+
+
+
+
+else
+echo "Using system libraries"
+#sudo yum install cairo-devel pango-devel freetype-devel gd-devel libpng-devel wxGTK-devel wxBase
+fi
+
 
 cd ${SOURCE_FOLDER}
 wget http://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.1/gnuplot-5.0.1.tar.gz
