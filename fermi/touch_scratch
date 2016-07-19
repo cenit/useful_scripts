@@ -1,0 +1,5 @@
+#! /bin/bash
+
+find $CINECA_SCRATCH -exec touch -h {} \;
+
+

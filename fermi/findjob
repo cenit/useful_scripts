@@ -1,0 +1,23 @@
+#! /bin/bash
+
+llq > log_job_temporary_file.txt
+echo
+echo "on global queue you're at position:"
+grep -n "ssinigar" log_job_temporary_file.txt
+rm -f log_job_temporary_file.txt 
+echo
+if [ "$#" -gt 0 ]; then
+llq -c $1 > log_job_$1_temporary_file.txt
+echo "on queue $1 you're at position: "
+grep -n "ssinigar" log_job_$1_temporary_file.txt
+rm -f log_job_$1_temporary_file.txt
+fi
+
+if [ "$#" -gt 1 ]; then
+llq -c $2 > log_job_$2_temporary_file.txt
+echo "on queue $2 you're at position: "
+grep -n "ssinigar" log_job_$2_temporary_file.txt
+rm -f log_job_$2_temporary_file.txt
+fi
+
+
