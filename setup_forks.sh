@@ -72,8 +72,8 @@ git clone https://github.com/physycom/json.git
 cd json/
 git remote add upstream https://github.com/nlohmann/json.git
 git fetch upstream
-git checkout master
-git merge upstream/master
+git checkout develop
+git merge upstream/develop
 git push
 cd ..
 
