@@ -154,3 +154,47 @@ git merge upstream/master
 git push
 cd ..
 
+## community_bash_style_guide
+rm -rf community_bash_style_guide
+git clone https://github.com/cenit/community_bash_style_guide.git
+cd community_bash_style_guide/
+git remote add upstream https://github.com/azet/community_bash_style_guide.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+## ALaDyn_cenit
+rm -rf ALaDyn_cenit
+git clone https://github.com/cenit/ALaDyn.git ALaDyn_cenit
+cd ALaDyn_cenit/
+git remote add upstream https://github.com/ALaDyn/ALaDyn.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+## Propaga_cenit
+rm -rf Propaga_cenit
+git clone https://github.com/cenit/Propaga.git Propaga_cenit
+cd Propaga_cenit/
+git remote add upstream https://github.com/ALaDyn/Propaga.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+## Stats
+rm -rf Stats
+git clone https://github.com/cenit/Stats.git
+cd Stats/
+git remote add upstream https://github.com/mjkaufer/Stats.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
