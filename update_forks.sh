@@ -40,6 +40,14 @@ git merge upstream/master
 git push
 cd ..
 
+echo ramses 
+cd ramses/
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 echo QGIS 
 cd QGIS/
 git fetch upstream

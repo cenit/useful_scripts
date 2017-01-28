@@ -55,6 +55,17 @@ git merge upstream/master
 git push
 cd ..
 
+## ramses 
+rm -rf ramses
+git clone https://github.com/ALaDyn/ramses.git
+cd ramses/
+git remote add upstream https://bitbucket.org/rteyssie/ramses.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 ## QGIS 
 rm -rf QGIS
 git clone https://github.com/physycom/QGIS.git
