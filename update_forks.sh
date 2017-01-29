@@ -48,6 +48,22 @@ git merge upstream/master
 git push
 cd ..
 
+echo epoch 
+cd epoch/
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+echo EPOCH_manuals 
+cd EPOCH_manuals/
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 echo QGIS 
 cd QGIS/
 git fetch upstream

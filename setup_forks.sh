@@ -66,6 +66,28 @@ git merge upstream/master
 git push
 cd ..
 
+## epoch 
+rm -rf epoch
+git clone https://github.com/ALaDyn/epoch.git
+cd epoch/
+git remote add upstream git@cfsa-pmw.warwick.ac.uk:EPOCH/epoch.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+## EPOCH_manuals 
+rm -rf EPOCH_manuals
+git clone https://github.com/ALaDyn/EPOCH_manuals.git
+cd EPOCH_manuals/
+git remote add upstream git@cfsa-pmw.warwick.ac.uk:EPOCH/EPOCH_manuals.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 ## QGIS 
 rm -rf QGIS
 git clone https://github.com/physycom/QGIS.git
