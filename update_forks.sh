@@ -136,6 +136,14 @@ git merge upstream/master
 git push
 cd ..
 
+echo numerical-methods-fortran  
+cd numerical-methods-fortran/
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 echo community_bash_style_guide
 cd community_bash_style_guide/
 git fetch upstream

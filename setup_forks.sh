@@ -187,6 +187,17 @@ git merge upstream/master
 git push
 cd ..
 
+## numerical-methods-fortran  
+rm -rf numerical-methods-fortran
+git clone https://github.com/physycom/numerical-methods-fortran.git
+cd numerical-methods-fortran/
+git remote add upstream https://github.com/planelles20/numerical-methods-fortran.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 ## community_bash_style_guide
 rm -rf community_bash_style_guide
 git clone https://github.com/cenit/community_bash_style_guide.git
