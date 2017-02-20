@@ -1,12 +1,13 @@
 #!/bin/bash
 
 cd ~/Codice
+mkdir -p docs
 
 repo_doxygenate=("calib_lib" "math_lib" "rdp_lib" "vbb_datastore" "vbb_meta" "vbb_texa" "texabox")
 for repo in ${repo_doxygenate[*]} ; do
   if [ -d $repo ]; then
     cd $repo
-    pandoc --from=markdown README.md .pandoc.yml -o ../${repo}.pdf
+    pandoc --from=markdown README.md .pandoc.yml -o ../docs/${repo}.pdf
     cd ..
   fi
 done
@@ -15,7 +16,7 @@ done
 repo="metabox"
 if [ -d $repo ]; then
   cd $repo/trunk
-  pandoc --from=markdown README.md .pandoc.yml -o ../${repo}.pdf
+  pandoc --from=markdown README.md .pandoc.yml -o ../../docs/${repo}.pdf
   cd ../..
 fi
 
@@ -24,7 +25,7 @@ repo_soloreadme=("data_tools" "datalogger" "distance_stats" "get_nominatim_info"
 for repo in ${repo_soloreadme[*]} ; do
   if [ -d $repo ]; then
     cd $repo
-    pandoc --from=markdown README.md -o ../${repo}.pdf
+    pandoc --from=markdown README.md -o ../docs/${repo}.pdf
     cd ..
   fi
 done
