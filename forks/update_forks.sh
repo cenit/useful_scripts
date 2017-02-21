@@ -144,6 +144,14 @@ git merge upstream/master
 git push
 cd ..
 
+echo densityClust
+cd densityClust
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 echo community_bash_style_guide
 cd community_bash_style_guide/
 git fetch upstream

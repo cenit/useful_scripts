@@ -198,6 +198,17 @@ git merge upstream/master
 git push
 cd ..
 
+## densityClust
+rm -rf densityClust
+git clone https://github.com/physycom/densityClust.git
+cd densityClust/
+git remote add upstream https://github.com/thomasp85/densityClust.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 ## community_bash_style_guide
 rm -rf community_bash_style_guide
 git clone https://github.com/cenit/community_bash_style_guide.git
