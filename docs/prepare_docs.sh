@@ -30,3 +30,12 @@ for repo in ${repo_soloreadme[*]} ; do
   fi
 done
 
+#special treatment for file format specifications
+repo=("file_format_specifications")
+if [ -d $repo ]; then
+  cd $repo
+  pandoc --from=markdown formati_file.md formati_file.yml -o ../docs/formati_file.pdf
+  cd ..
+fi
+
+
