@@ -3,7 +3,7 @@
 cd ~/Codice
 mkdir -p docs
 
-repo_doxygenate=("calib_lib" "math_lib" "rdp_lib" "vbb_datastore" "vbb_meta" "vbb_texa" "texabox")
+repo_doxygenate=("libcasc" "libbbmtuils" "libtra" "vbb_datastore" "vbb_meta" "vbb_texa" "texabox")
 for repo in ${repo_doxygenate[*]} ; do
   if [ -d $repo ]; then
     cd $repo
