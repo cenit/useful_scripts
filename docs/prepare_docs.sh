@@ -7,7 +7,11 @@ repo_doxygenate=("libcasc" "libbbmutils" "libtra" "vbb_datastore" "vbb_meta" "vb
 for repo in ${repo_doxygenate[*]} ; do
   if [ -d $repo ]; then
     cd $repo
-    pandoc --from=markdown README.md .pandoc.yml -o ../docs/${repo}.pdf
+    pandoc --from=markdown README.md .pandoc.yml -o ../docs/${repo}_readme.pdf
+    make doc
+    if [ -f doc/latex/refman.pdf ]; then
+      mv doc/latex/refman.pdf ../docs/${repo}.pdf
+    fi
     cd ..
   fi
 done
