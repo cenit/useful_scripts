@@ -3,7 +3,7 @@
 cd ~/Codice
 mkdir -p docs
 
-repo_doxygenate=("libcasc" "libbbmutils" "libtra" "vbb_datastore" "vbb_meta" "vbb_texa" "texabox")
+repo_doxygenate=("datalogger" "libcasc" "libbbmutils" "libtra" "vbb_datastore" "vbb_meta" "vbb_texa")
 for repo in ${repo_doxygenate[*]} ; do
   if [ -d $repo ]; then
     cd $repo
@@ -24,8 +24,16 @@ if [ -d $repo ]; then
   cd ../..
 fi
 
+#special treatment for texabox
+repo="texabox"
+if [ -d $repo ]; then
+  cd $repo
+  pandoc --from=markdown README.md .pandoc.yml -o ../docs/${repo}.pdf
+  cd ..
+fi
 
-repo_soloreadme=("data_tools" "datalogger" "distance_stats" "get_nominatim_info" "inertial_tools" "json_distance" "json_packer" "json_to_html" "json_to_kml" "libgnssconv" "list_to_json" "log_parser" "Quaternioni" "ubx_to_json")
+
+repo_soloreadme=("data_tools" "distance_stats" "get_nominatim_info" "inertial_tools" "json_distance" "json_packer" "json_to_html" "json_to_kml" "libgnssconv" "list_to_json" "log_parser" "Quaternioni" "ubx_to_json")
 for repo in ${repo_soloreadme[*]} ; do
   if [ -d $repo ]; then
     cd $repo
