@@ -25,7 +25,7 @@ if [ -d $repo ]; then
 fi
 
 
-repo_soloreadme=("data_tools" "datalogger" "distance_stats" "get_nominatim_info" "inertial_tools" "json_distance" "json_packer" "json_to_html" "json_to_kml" "kml_to_json" "libgnssconv" "list_to_json" "log_parser" "Quaternioni" "ubx_to_json")
+repo_soloreadme=("data_tools" "datalogger" "distance_stats" "get_nominatim_info" "inertial_tools" "json_distance" "json_packer" "json_to_html" "json_to_kml" "libgnssconv" "list_to_json" "log_parser" "Quaternioni" "ubx_to_json")
 for repo in ${repo_soloreadme[*]} ; do
   if [ -d $repo ]; then
     cd $repo
