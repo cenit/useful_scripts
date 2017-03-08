@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [[ -f "$(pwd)/$1" ]]; then
+  site="$(pwd)/$1"
+elif [[ "$1" =~ "^http" ]]; then
+  site="$1"
+else
+  site="http://$1"
+fi  
+
+open -a "Google Chrome" $site
