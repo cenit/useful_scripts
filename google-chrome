@@ -2,9 +2,9 @@
 
 if [[ -f "$(pwd)/$1" ]]; then
   site="$(pwd)/$1"
-elif [[ "$1" =~ "^http" ]]; then
+elif [[ "$1" == "http"* ]]; then
   site="$1"
-elif [[ "$1" =~ "^file" ]]; then
+elif [[ "$1" == "file"* ]]; then
   site="$1"
 else
   site="http://$1"
