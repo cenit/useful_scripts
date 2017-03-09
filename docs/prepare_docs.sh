@@ -16,6 +16,14 @@ for repo in ${repo_doxygenate[*]} ; do
   fi
 done
 
+#special treatment for libtra to include examples
+repo="libtra"
+if [ -d $repo ]; then
+  cd $repo
+  pandoc --from=markdown README.md EXAMPLES.md .pandoc.yml -o ../docs/${repo}_readme.pdf
+  cd ..
+fi
+
 #special treatment for metabox (due to SVN folder structure)
 repo="metabox"
 if [ -d $repo ]; then
