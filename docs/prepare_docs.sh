@@ -58,12 +58,11 @@ if [ -d $repo ]; then
   cd ..
 fi
 
-
 #special treatment for test descriptions
 repo=("test_procedures_and_results")
 if [ -d $repo ]; then
   cd $repo
-  pandoc --from=markdown README.md .pandoc.yml -o ../docs/test_procedures_and_results.pdf
+  pandoc --from=markdown README.md .pandoc.yml -o ../docs/test_procedures_and_results.pdf --latex-engine=xelatex
   cd ..
 fi
 
