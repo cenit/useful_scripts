@@ -16,12 +16,25 @@ for repo in ${repo_doxygenate[*]} ; do
   fi
 done
 
-#special treatment for libtra to include examples
+#special treatment for libtra to include examples and flowchart
 repo="libtra"
 if [ -d $repo ]; then
   cd $repo
   pandoc --from=markdown README.md EXAMPLES.md .pandoc.yml -o ../docs/${repo}_readme.pdf
   cd ..
+  cd $repo/doc
+  pdflatex algorithm_flowchart_presentation.tex
+  mv algorithm_flowchart_presentation.pdf ../../docs/${repo}_flowchart.pdf
+  cd ../..
+fi
+
+#special treatment for libcasc to prepare flowchart
+repo="libcasc"
+if [ -d $repo ]; then
+  cd $repo/doc
+  pdflatex algorithm_flowchart_presentation.tex
+  mv algorithm_flowchart_presentation.pdf ../../docs/${repo}_flowchart.pdf
+  cd ../..
 fi
 
 #special treatment for metabox (due to SVN folder structure)
