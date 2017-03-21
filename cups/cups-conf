@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# Istruzione di Stop del demone cupsd (non serve ai clients)
+# valida per sistemi linux
+#
+
+architettura=`uname -a | awk -F" " '{print $1}'`
+if [ "$architettura" = "Linux" ]; then
+  /sbin/service   cups stop
+  /sbin/chkconfig cups off
+fi
+#
+# Definisco il print server a seconda della sede
+#
+host=`hostname`
+subnet=`host $host | perl -ni -e 'm/(\d+)\.(\d+)\.(\d+)/; print $3'`
+if [ "$subnet" = "10" ] || [ "$subnet" = "12" ] || [ "$subnet" = "1" ]; then
+  area=i
+  defaultprinter=phaseribn
+elif [ "$subnet" = "11" ] || [ "$subnet" = "102" ] || [ "$subnet" = "2" ]; then
+  area=m
+  defaultprinter=phaserm
+else
+#
+# Modifica 7/8/08 D.B.
+#
+  area=m
+  defaultprinter=phaserm
+#
+# echo "Errore nella configurazione di rete: $host\n"
+# echo "Sistema il file /etc/hosts: distingui la riga di 127.0.0.1 da quella del nome-numero di rete\n"
+fi
+echo "ServerName prserver$area.bo.infn.it" > /etc/cups/client.conf
+#
+# Definisco le opzioni per le code
+#
+echo "Default $defaultprinter" > /etc/cups/lpoptions
+cat <<EOF>>/etc/cups/lpoptions
+Dest phaseribn-two number-up=2
+Dest phaseribn-simplex sides=one-sided
+Dest phaserm-two number-up=2
+Dest phaserm-simplex sides=one-sided
+Dest phaseric-two number-up=2
+Dest phasermc-two number-up=2
+Dest lps2-two number-up=2
+Dest lpstg-two number-up=2
+Dest i1color1-simplex sides=one-sided
+Dest m1color1-simplex sides=one-sided
+EOF
