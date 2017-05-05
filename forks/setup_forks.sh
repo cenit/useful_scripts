@@ -33,6 +33,17 @@ git merge upstream/master
 git push
 cd ..
 
+## fbpic
+rm -rf fbpic
+git clone https://github.com/ALaDyn/fbpic.git
+cd fbpic/
+git remote add upstream https://github.com/fbpic/fbpic.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
 ## gnuplot-colorbrewer
 rm -rf gnuplot-colorbrewer
 git clone https://github.com/ALaDyn/gnuplot-colorbrewer.git
@@ -203,6 +214,17 @@ rm -rf densityClust
 git clone https://github.com/physycom/densityClust.git
 cd densityClust/
 git remote add upstream https://github.com/thomasp85/densityClust.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+## tclap
+rm -rf tclap
+git clone https://github.com/physycom/tclap.git
+cd tclap/
+git remote add upstream https://git.code.sf.net/p/tclap/code
 git fetch upstream
 git checkout master
 git merge upstream/master

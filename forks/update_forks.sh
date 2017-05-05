@@ -24,6 +24,15 @@ git merge upstream/master
 git push
 cd ..
 
+echo fbpic
+cd fbpic/
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+
 echo gnuplot-colorbrewer
 cd gnuplot-colorbrewer/
 git fetch upstream
@@ -146,6 +155,14 @@ cd ..
 
 echo densityClust
 cd densityClust
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+cd ..
+
+echo tclap
+cd tclap/
 git fetch upstream
 git checkout master
 git merge upstream/master
