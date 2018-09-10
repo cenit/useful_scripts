@@ -11,7 +11,7 @@ REPO=json
     cd ..
   fi
 
-REPOSITORIES=(Smilei PIConGPU psc fbpic gnuplot-colorbrewer VTKFortran ramses epoch EPOCH_manuals websocketpp crowd-counting curlpp QGIS json jsoncons Nominatim mosquitto geopy pyUblox Catch RTKLIB numerical-methods-fortran densityClust voc-dpm Dictionaries)
+REPOSITORIES=(Smilei PIConGPU psc fbpic gnuplot-colorbrewer VTKFortran ramses epoch EPOCH_manuals websocketpp crowd-counting curlpp QGIS jsoncons Nominatim mosquitto geopy pyUblox Catch RTKLIB numerical-methods-fortran densityClust voc-dpm Dictionaries)
 for REPO in ${REPOSITORIES[*]}
 do
   if [ -d "$REPO" ]; then
