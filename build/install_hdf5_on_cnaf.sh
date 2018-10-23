@@ -9,14 +9,18 @@ export CXX=$(which g++)
 export FC=$(which gfortran)
 export F90=$(which gfortran)
 
-cd /shared/software/project/aladyn/hdf5
+rm -rf /shared/software/project/aladyn/hdf5
+
+cd /shared/software/project/aladyn/
+mkdir hdf5
+cd hdf5/
 
 wget --no-check-certificate https://support.hdfgroup.org/ftp/HDF5/current18/src/CMake-hdf5-1.8.20.tar.gz 
 tar zxvf CMake-hdf5-1.8.20.tar.gz 
 mv CMake-hdf5-1.8.20 hdf5-1.8.20_source
 mkdir hdf5-1.8.20
 cd hdf5-1.8.20_source/
-ctest -S HDF5config.cmake,BUILD_GENERATOR=Unix,FORTRAN_LIBRARIES=YES,INSTRALLDIR=/shared/software/project/aladyn/hdf5/hdf5-1.8.20/ -C Release -VV -O hdf5.log
+ctest -S HDF5config.cmake,BUILD_GENERATOR=Unix,FORTRAN_LIBRARIES=YES,STATIC_ONLY=NO,INSTRALLDIR=/shared/software/project/aladyn/hdf5/hdf5-1.8.20/ -C Release -VV -O hdf5.log
 cd build
 mv HDF5-1.8.20-Linux.tar.gz ..
 cd ..
