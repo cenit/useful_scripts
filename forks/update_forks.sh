@@ -47,7 +47,7 @@ REPO=math
     cd ..
   fi
 
-REPOSITORIES=(vcpkg Propaga ALaDyn tools-piccante darknet matconvnet Multitarget-tracker gdl vlfeat Detectron community_bash_style_guide sudoku-detector ProteinPipe Data-Analysis nocs voc-release4.01 libsvm azure-batch-apps-blender L1--L2---Computation-of-satellite-and-receiver-position)
+REPOSITORIES=(vcpkg Propaga ALaDyn tools-piccante matconvnet Multitarget-tracker gdl vlfeat Detectron community_bash_style_guide sudoku-detector ProteinPipe Data-Analysis nocs voc-release4.01 libsvm azure-batch-apps-blender L1--L2---Computation-of-satellite-and-receiver-position)
 for REPO in ${REPOSITORIES[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
@@ -57,6 +57,25 @@ do
     git fetch upstream
     git merge upstream/master
     git push
+    cd ..
+  fi
+done
+
+REPOSITORIES=(darknet)
+for REPO in ${REPOSITORIES[*]}
+do
+  if [ -d "${REPO}_cenit" ]; then
+    echo ${REPO}_cenit
+    cd ${REPO}_cenit/
+    git checkout master
+    git fetch upstream_pj
+    git merge upstream_pj/master
+    git push
+    git checkout dev/alexey/master
+    git fetch upstream_ax
+    git merge upstream_ax/master
+    git push
+    git checkout master
     cd ..
   fi
 done

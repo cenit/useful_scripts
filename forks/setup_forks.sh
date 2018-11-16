@@ -327,11 +327,17 @@ cd ..
 rm -rf darknet_cenit
 git clone https://github.com/cenit/darknet.git darknet_cenit
 cd darknet_cenit/
-git remote add upstream https://github.com/pjreddie/darknet.git
+git remote add upstream_pj https://github.com/pjreddie/darknet.git
 git checkout master
-git fetch upstream
-git merge upstream/master
+git fetch upstream_pj
+git merge upstream_pj/master
 git push
+git remote add upstream_ax https://github.com/AlexeyAB/darknet.git
+git checkout dev/alexey/master
+git fetch upstream_ax
+git merge upstream_ax/master
+git push
+git checkout master
 cd ..
 
 ## matconvnet_cenit
