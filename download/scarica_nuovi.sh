@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 #CINECA_DATA
 #PERCORSO_FILE=/shared/data/userexternal/plondril/Aladyn
 #BGP_SCRATCH
@@ -36,4 +38,4 @@ scp -p plondril@login.bgp.cineca.it:${PERCORSO_FILE}/${RUN_ORIGINALE}/B*06.bin $
 scp -p plondril@login.bgp.cineca.it:${PERCORSO_FILE}/${RUN_ORIGINALE}/B*08.bin ${RUN_DESTINAZIONE}/.
 scp -p plondril@login.bgp.cineca.it:${PERCORSO_FILE}/${RUN_ORIGINALE}/P*08.bin ${RUN_DESTINAZIONE}/.
 scp -p plondril@login.bgp.cineca.it:${PERCORSO_FILE}/${RUN_ORIGINALE}/I*08.bin ${RUN_DESTINAZIONE}/.
-echo -e "Ho finito di scaricare i nuovi files" 
+echo -e "Ho finito di scaricare i nuovi files"

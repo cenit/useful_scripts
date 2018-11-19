@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 # adapted from http://trac.ffmpeg.org/wiki/CompilationGuide/Centos
 # make sure to add ${BUILD_FOLDER}/bin to PATH and ${BUILD_FOLDER}/lib to LD_LIBRARY_PATH before starting
 
@@ -122,4 +124,3 @@ make
 make install
 make distclean
 hash -r
-

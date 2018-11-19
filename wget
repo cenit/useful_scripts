@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+PWSH=/mnt/c/Windows/system32/WindowsPowerShell/v1.0/powershell.exe
+outputfile=$(echo $1 | awk -F/ '{print $NF}')
+myuser=$(whoami | awk -F\\ '{print $NF}')
+echo "Download from $1"
+echo "Saving to: $HOME/Downloads/$outputfile"
+$PWSH "wget $1 -OutFile C:\\Users\\${myuser}\\Downloads\\$outputfile"
+echo "Linking $HOME/Downloads/$outputfile here"
+ln -s $HOME/Downloads/$outputfile

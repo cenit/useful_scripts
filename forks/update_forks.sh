@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 REPO=json
   if [ -d "$REPO" ]; then

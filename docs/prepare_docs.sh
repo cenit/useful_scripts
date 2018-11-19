@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 cd ~/Codice
 mkdir -p docs
@@ -78,5 +78,3 @@ if [ -d $repo ]; then
   pandoc --from=markdown README.md .pandoc.yml -o ../docs/test_procedures_and_results.pdf --latex-engine=xelatex
   cd ..
 fi
-
-

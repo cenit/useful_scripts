@@ -1,9 +1,9 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 NOME_SIM=$1
 echo Elaboro ${NOME_SIM}
 ls -l ${NOME_SIM} > ${NOME_SIM}_on_disk.txt
-cart_dir ${NOME_SIM} > ${NOME_SIM}_on_tape.txt 
+cart_dir ${NOME_SIM} > ${NOME_SIM}_on_tape.txt
 awk '{ print $9 " " $5 }' ${NOME_SIM}_on_disk.txt > ${NOME_SIM}_on_disk_clean.txt
 awk '{ print $1 " " $2 }' ${NOME_SIM}_on_tape.txt > ${NOME_SIM}_on_tape_clean.txt
 cat ${NOME_SIM}_on_disk_clean.txt | sort > ${NOME_SIM}_on_disk_sort.txt

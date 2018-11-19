@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 echo "Tot:       "`llq |tail -1`
 echo "Debug:     "`llq -c debug |tail -1`

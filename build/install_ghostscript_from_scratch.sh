@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 # make sure to add ${BUILD_FOLDER}/bin to PATH
 
 BUILD_FOLDER=/shared/software/project/aladyn/ghostscript/
@@ -11,4 +13,3 @@ cd ghostscript-9.20
 ./configure --prefix="${BUILD_FOLDER}"
 make
 make install
-

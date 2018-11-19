@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 if [[ -f "$(pwd)/$1" ]]; then
   site="$(pwd)/$1"
@@ -8,6 +8,6 @@ elif [[ "$1" == "file"* ]]; then
   site="$1"
 else
   site="http://$1"
-fi  
+fi
 
 open -a "Google Chrome" $site

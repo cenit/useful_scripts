@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 
 TOTAL_NUMBER_OF_CORES=16
@@ -23,9 +23,8 @@ echo "$  at now +1 minutes "
 echo ">  source $HOME/.bashrc "
 echo ">  cd $PWD "
 echo ">  mpirun -np ${TOTAL_NUMBER_OF_CORES} --machinefile ${machine_file} ${EXE_NAME} >> ${stdout_file} 2>> ${stderr_file}"
-echo 
+echo
 echo
 echo "Then close the command prompt with CTRL + D"
 echo
 echo
-

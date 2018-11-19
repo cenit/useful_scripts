@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 #STILL NOT WORKING, BUT YOU CAN INSTALL DEPENDENCIES THROUGH yum IF YOU WANT, UNCOMMENTING A LINE AT THE END
 #AND SETTING TO true THE FOLLOWING DEFINITION
 BUILD_DEPENDENCIES=false
@@ -104,5 +106,3 @@ cd gnuplot-5.0.1
 ./configure --prefix="${BUILD_FOLDER}"
 make
 make install
-
-

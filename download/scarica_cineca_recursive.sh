@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 #RUN_LOCALE=Comb
 RUN_REMOTO=run4_El
 ##### CINECA_DATA
@@ -16,4 +18,4 @@ PERCORSO_FILE=/shared/data/userexternal/plondril/Aladyn
    scp -rp plondril@sp.sp6.cineca.it:${PERCORSO_FILE}/${RUN_REMOTO} .
 #   scp -p plondril@login.bgp.cineca.it:${PERCORSO_FILE}/${RUN_REMOTO}/${FILE} ${RUN_LOCALE}/.
 #done
-echo -e "Ho finito di scaricare il ${RUN_REMOTO} in ${RUN_LOCALE}" 
+echo -e "Ho finito di scaricare il ${RUN_REMOTO} in ${RUN_LOCALE}"
