@@ -7,4 +7,7 @@ echo "Download from $1"
 echo "Saving to: $HOME/Downloads/$outputfile"
 $PWSH "wget $1 -OutFile C:\\Users\\${myuser}\\Downloads\\$outputfile"
 echo "Linking $HOME/Downloads/$outputfile here"
-ln -s $HOME/Downloads/$outputfile
+
+#if [ ! -f ./$outputfile ]; then
+  ln -s $HOME/Downloads/$outputfile .
+#fi
