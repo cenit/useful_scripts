@@ -504,3 +504,14 @@ git fetch upstream
 git merge upstream/master
 git push
 cd ..
+
+## cmake_cenit
+rm -rf cmake_cenit
+git clone https://gitlab.kitware.com/cenit/cmake cmake_cenit
+cd cmake_cenit/
+git remote add upstream https://gitlab.kitware.com/cmake/cmake
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push
+cd ..
