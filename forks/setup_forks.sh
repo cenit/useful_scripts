@@ -2,6 +2,17 @@
 
 # CUSTOMIZED FORKS (not mirrors, we keep updated only the main branch from upstream!)
 
+## cmake_cenit
+rm -rf cmake_cenit
+git clone https://gitlab.kitware.com/cenit/cmake cmake_cenit
+cd cmake_cenit/
+git remote add upstream https://gitlab.kitware.com/cmake/cmake
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push
+cd ..
+
 ## crowd-counting
 rm -rf crowd-counting
 git clone https://github.com/physycom/crowd-counting.git

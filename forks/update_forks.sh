@@ -38,7 +38,7 @@ do
   fi
 done
 
-REPOSITORIES_CUSTOMIZED=(vcpkg Propaga ALaDyn tools-piccante matconvnet vlfeat sudoku-detector voc-release4.01 libsvm Data-Analysis nocs ProteinPipe crowd-counting)
+REPOSITORIES_CUSTOMIZED=(vcpkg Propaga ALaDyn tools-piccante matconvnet vlfeat sudoku-detector voc-release4.01 libsvm Data-Analysis nocs ProteinPipe crowd-counting cmake)
 for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "$REPO_cenit" ]; then
