@@ -166,7 +166,7 @@ cd ..
 rm -rf matconvnet_cenit
 git clone https://github.com/cenit/matconvnet.git matconvnet_cenit
 cd matconvnet_cenit/
-git clone --mirror https://github.com/vlfeat/matconvnet.git
+git remote add upstream https://github.com/vlfeat/matconvnet.git
 git checkout master
 git fetch upstream
 git merge upstream/master
