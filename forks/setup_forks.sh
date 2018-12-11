@@ -226,7 +226,7 @@ cd ..
 
 ## gnuplot-colorbrewer
 rm -rf gnuplot-colorbrewer
-git clone --mirror https://github.com/aschn/.git gnuplot-colorbrewer
+git clone --mirror https://github.com/aschn/gnuplot-colorbrewer.git gnuplot-colorbrewer
 cd gnuplot-colorbrewer/
 git remote set-url --push origin https://github.com/ALaDyn/gnuplot-colorbrewer.git
 git fetch -p origin
@@ -251,23 +251,23 @@ git fetch -p origin
 git push --mirror
 cd ..
 
-## epoch
-rm -rf epoch
-git clone --mirror git@cfsa-pmw.warwick.ac.uk:EPOCH/epoch.git epoch
-cd epoch/
-git remote set-url --push origin https://github.com/ALaDyn/epoch.git
-git fetch -p origin
-git push --mirror
-cd ..
+### epoch
+#rm -rf epoch
+#git clone --mirror git@cfsa-pmw.warwick.ac.uk:EPOCH/epoch.git epoch
+#cd epoch/
+#git remote set-url --push origin https://github.com/ALaDyn/epoch.git
+#git fetch -p origin
+#git push --mirror
+#cd ..
 
-## EPOCH_manuals
-rm -rf EPOCH_manuals
-git clone --mirror git@cfsa-pmw.warwick.ac.uk:EPOCH/EPOCH_manuals.git EPOCH_manuals
-cd EPOCH_manuals/
-git remote set-url --push origin https://github.com/ALaDyn/EPOCH_manuals.git
-git fetch -p origin
-git push --mirror
-cd ..
+### EPOCH_manuals
+#rm -rf EPOCH_manuals
+#git clone --mirror git@cfsa-pmw.warwick.ac.uk:EPOCH/EPOCH_manuals.git EPOCH_manuals
+#cd EPOCH_manuals/
+#git remote set-url --push origin https://github.com/ALaDyn/EPOCH_manuals.git
+#git fetch -p origin
+#git push --mirror
+#cd ..
 
 
 ## websocketpp
