@@ -28,7 +28,7 @@ do
   fi
 done
 
-REPOSITORIES_CUSTOMIZED=math
+REPOSITORIES_CUSTOMIZED=boost_math
 for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
