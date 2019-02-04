@@ -5,7 +5,7 @@ for REPO in ${REPOSITORIES_CLONED[*]}
 do
   if [ -d "${REPO}" ]; then
     echo "Updating --- ${REPO}"
-    cd ${REPO}/
+    cd "${REPO}"/ || exit
     git fetch -p origin
     git push --mirror
     cd ..
@@ -19,7 +19,7 @@ for REPO in ${REPOSITORIES_CLONED_CENIT[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
     echo "Updating --- ${REPO}_cenit"
-    cd ${REPO}_cenit/
+    cd "${REPO}_cenit"/ || exit
     git fetch -p origin
     git push --mirror
     cd ..
@@ -33,7 +33,7 @@ for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
     echo "Updating --- ${REPO}_cenit"
-    cd ${REPO}_cenit/
+    cd "${REPO}_cenit"/ || exit
     git checkout develop
     git fetch upstream
     git merge upstream/develop
@@ -49,7 +49,7 @@ for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
     echo "Updating --- ${REPO}_cenit"
-    cd ${REPO}_cenit/
+    cd "${REPO}_cenit"/ || exit
     git checkout master
     git fetch upstream
     git merge upstream/master
@@ -65,7 +65,7 @@ for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
     echo "Updating --- ${REPO}_cenit"
-    cd ${REPO}_cenit/
+    cd "${REPO}_cenit"/ || exit
     git checkout master
     git fetch upstream_pj
     git merge upstream_pj/master
