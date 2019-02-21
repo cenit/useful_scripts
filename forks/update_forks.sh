@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-REPOSITORIES_CLONED=(Smilei fbpic PIConGPU psc gnuplot-colorbrewer VTKFortran ramses epoch EPOCH_manuals websocketpp curlpp QGIS jsoncons Nominatim mosquitto geopy pyUblox Catch RTKLIB numerical-methods-fortran densityClust voc-dpm Dictionaries)
+REPOSITORIES_CLONED=(Smilei fbpic PIConGPU psc gnuplot-colorbrewer VTKFortran ramses epoch EPOCH_manuals websocketpp curlpp QGIS jsoncons Nominatim mosquitto geopy pyUblox Catch RTKLIB numerical-methods-fortran densityClust voc-dpm Dictionaries grub)
 for REPO in ${REPOSITORIES_CLONED[*]}
 do
   if [ -d "${REPO}" ]; then

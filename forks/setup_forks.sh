@@ -497,6 +497,24 @@ if [ ! -d "${REPO}" ]; then
   fi
 fi
 
+## grub
+REPO=grub
+if [ "$REINITIALIZE_FORKS" = true ] ; then
+  rm -rf "${REPO}"
+fi
+if [ ! -d "${REPO}" ]; then
+  git clone --mirror https://git.savannah.gnu.org/git/grub.git "${REPO}"
+  if [ -d "${REPO}" ]; then  #we add this check so that if cloning fails the following steps are not messing around!
+    cd "${REPO}"/ || exit
+    git remote set-url --push origin https://github.com/cenit/grub.git
+    git fetch -p origin
+    git push --mirror
+    cd ..
+  else
+    echo "Failed cloning --- $REPO"
+  fi
+fi
+
 ## websocketpp
 REPO=websocketpp
 if [ "$REINITIALIZE_FORKS" = true ] ; then
