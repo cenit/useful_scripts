@@ -551,24 +551,6 @@ if [ ! -d "${REPO}" ]; then
   fi
 fi
 
-## QGIS
-REPO=QGIS
-if [ "$REINITIALIZE_FORKS" = true ] ; then
-  rm -rf "${REPO}"
-fi
-if [ ! -d "${REPO}" ]; then
-  git clone --mirror https://github.com/qgis/QGIS.git "${REPO}"
-  if [ -d "${REPO}" ]; then  #we add this check so that if cloning fails the following steps are not messing around!
-    cd "${REPO}"/ || exit
-    git remote set-url --push origin https://github.com/physycom/QGIS.git
-    git fetch -p origin
-    git push --mirror
-    cd ..
-  else
-    echo "Failed cloning --- $REPO"
-  fi
-fi
-
 ## json
 REPO=json
 if [ "$REINITIALIZE_FORKS" = true ] ; then
