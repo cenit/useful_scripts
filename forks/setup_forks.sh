@@ -186,7 +186,7 @@ if [ ! -d "${REPO}" ]; then
 fi
 
 ## vcpkg_cenit
-REPO=vcpkg
+REPO=vcpkg_cenit
 if [ "$REINITIALIZE_FORKS" = true ] ; then
   rm -rf "${REPO}"
 fi
