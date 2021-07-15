@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-REPOSITORIES_CLONED=(Smilei fbpic PIConGPU psc gnuplot-colorbrewer VTKFortran ramses epoch EPOCH_manuals websocketpp curlpp jsoncons Nominatim mosquitto geopy pyUblox Catch RTKLIB numerical-methods-fortran densityClust voc-dpm Dictionaries grub)
+REPOSITORIES_CLONED=(Smilei fbpic PIConGPU psc gnuplot-colorbrewer VTKFortran ramses epoch EPOCH_manuals websocketpp curlpp jsoncons Nominatim mosquitto geopy pyUblox Catch RTKLIB numerical-methods-fortran densityClust voc-dpm Dictionaries grub openeb coulomb_oscillators elmerfem PoissonRecon doxygen meep count Urti-2d)
 for REPO in ${REPOSITORIES_CLONED[*]}
 do
   if [ -d "${REPO}" ]; then
@@ -44,7 +44,7 @@ do
   fi
 done
 
-REPOSITORIES_CUSTOMIZED=(vcpkg Propaga ALaDyn tools-piccante matconvnet vlfeat sudoku-detector voc-release4.01 libsvm Data-Analysis nocs ProteinPipe crowd-counting cmake)
+REPOSITORIES_CUSTOMIZED=(vcpkg vcpkg-tool bin2header BBAPI Propaga ALaDyn tools-piccante matconvnet vlfeat sudoku-detector voc-release4.01 libsvm Data-Analysis nocs ProteinPipe crowd-counting cmake Blob.js openMVG dotfiles elmerfem Aravis-OpenCV-Wrapper Yolo_mark Microsoft-MPI)
 for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
