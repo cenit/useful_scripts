@@ -44,7 +44,7 @@ do
   fi
 done
 
-REPOSITORIES_CUSTOMIZED=(vcpkg vcpkg-tool bin2header BBAPI Propaga ALaDyn tools-piccante matconvnet vlfeat sudoku-detector voc-release4.01 libsvm Data-Analysis nocs ProteinPipe crowd-counting cmake Blob.js openMVG dotfiles elmerfem Aravis-OpenCV-Wrapper Yolo_mark Microsoft-MPI)
+REPOSITORIES_CUSTOMIZED=(vcpkg bin2header BBAPI Propaga ALaDyn tools-piccante matconvnet vlfeat sudoku-detector voc-release4.01 libsvm Data-Analysis nocs ProteinPipe crowd-counting cmake Blob.js openMVG dotfiles elmerfem Aravis-OpenCV-Wrapper Yolo_mark Microsoft-MPI)
 for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
 do
   if [ -d "${REPO}_cenit" ]; then
@@ -53,6 +53,22 @@ do
     git checkout master
     git fetch upstream
     git merge upstream/master
+    git push
+    cd ..
+  else
+    echo "Unable to find --- ${REPO}_cenit --- skipping"
+  fi
+done
+
+REPOSITORIES_CUSTOMIZED=(vcpkg-tool)
+for REPO in ${REPOSITORIES_CUSTOMIZED[*]}
+do
+  if [ -d "${REPO}_cenit" ]; then
+    echo "Updating --- ${REPO}_cenit"
+    cd "${REPO}_cenit"/ || exit
+    git checkout main
+    git fetch upstream
+    git merge upstream/main
     git push
     cd ..
   else
