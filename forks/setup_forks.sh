@@ -15,9 +15,9 @@ if [ ! -d "${REPO}" ]; then
   if [ -d "${REPO}" ]; then  #we add this check so that if cloning fails the following steps are not messing around!
     cd "${REPO}"/ || exit
     git remote add upstream https://gitlab.kitware.com/cmake/cmake
-      git checkout master
+    git checkout master
     git fetch upstream
-      git merge upstream/master
+    git merge upstream/master
     git push
     cd ..
   else
@@ -259,32 +259,6 @@ if [ ! -d "${REPO}" ]; then
     git fetch upstream
     git merge upstream/master
     git push
-    cd ..
-  else
-    echo "Failed cloning --- $REPO"
-  fi
-fi
-
-## darknet_cenit
-REPO=darknet_cenit
-if [ "$REINITIALIZE_FORKS" = true ] ; then
-  rm -rf "${REPO}"
-fi
-if [ ! -d "${REPO}" ]; then
-  git clone https://github.com/cenit/darknet.git "${REPO}"
-  if [ -d "${REPO}" ]; then  #we add this check so that if cloning fails the following steps are not messing around!
-    cd "${REPO}"/ || exit
-    git remote add upstream_pj https://github.com/pjreddie/darknet.git
-    git checkout master
-    git fetch upstream_pj
-    git merge upstream_pj/master
-    git push
-    git remote add upstream_ax https://github.com/AlexeyAB/darknet.git
-    git checkout dev/alexey/master
-    git fetch upstream_ax
-    git merge upstream_ax/master
-    git push
-    git checkout master
     cd ..
   else
     echo "Failed cloning --- $REPO"
@@ -869,6 +843,32 @@ if [ ! -d "${REPO}" ]; then
     git remote set-url --push origin https://github.com/cenit/L1--L2---Computation-of-satellite-and-receiver-position
     git fetch -p origin
     git push --mirror
+    cd ..
+  else
+    echo "Failed cloning --- $REPO"
+  fi
+fi
+
+## darknet_cenit
+REPO=darknet_cenit
+if [ "$REINITIALIZE_FORKS" = true ] ; then
+  rm -rf "${REPO}"
+fi
+if [ ! -d "${REPO}" ]; then
+  git clone https://github.com/cenit/darknet.git "${REPO}"
+  if [ -d "${REPO}" ]; then  #we add this check so that if cloning fails the following steps are not messing around!
+    cd "${REPO}"/ || exit
+    git remote add upstream_pj https://github.com/pjreddie/darknet.git
+    git checkout master
+    git fetch upstream_pj
+    git merge upstream_pj/master
+    git push
+    git remote add upstream_ax https://github.com/AlexeyAB/darknet.git
+    git checkout dev/alexey/master
+    git fetch upstream_ax
+    git merge upstream_ax/master
+    git push
+    git checkout master
     cd ..
   else
     echo "Failed cloning --- $REPO"
