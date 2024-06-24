@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-$version = "1.1.0"
+$version = "1.1.1"
 Write-Host "Running setup_update_forks.ps1 version $version" -ForegroundColor Green
 
 $repositoriesCustomized = @(
@@ -313,7 +313,7 @@ $repositoriesClonedCenit = @(
 )
 
 function Update-Repo ($repo_name, $local_branch, $upstream_branch) {
-    if (Test-Path $repo) {
+    if (Test-Path $repo_name) {
         Set-Location -Path $repo_name
         git fetch -p origin
         git checkout $local_branch
@@ -346,7 +346,7 @@ foreach ($repo in $repositoriesCustomized) {
         }
     }
     else {
-        Update-Repo $($repo.name) $($repo.local_branch) $($repo.upstream)
+        Update-Repo $($repo.name) $($repo.local_branch) $($repo.upstream_branch)
     }
 }
 
