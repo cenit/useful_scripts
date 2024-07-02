@@ -13,6 +13,14 @@ $repositoriesCustomized = @(
         'skip' = $false
     },
     @{
+        'name' = 'count'
+        'url' = 'https://github.com/cenit/count'
+        'upstream' = 'https://github.com/dimroc/count.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
         'name' = 'crowd-counting'
         'url' = 'https://github.com/physycom/crowd-counting.git'
         'upstream' = 'https://github.com/hankong/crowd-counting.git'
@@ -53,6 +61,14 @@ $repositoriesCustomized = @(
         'skip' = $false
     },
     @{
+        'name' = 'meep_cenit'
+        'url' = 'https://github.com/cenit/meep.git'
+        'upstream' = 'https://github.com/NanoComp/meep.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
         'name' = 'voc-release4.01_cenit'
         'url' = 'https://github.com/cenit/voc-release4.01.git'
         'upstream' = 'https://github.com/rbgirshick/voc-release4.01.git'
@@ -85,6 +101,78 @@ $repositoriesCustomized = @(
         'skip' = $false
     },
     @{
+        'name' = 'Yolo_mark'
+        'url' = 'https://github.com/cenit/Yolo_mark.git'
+        'upstream' = 'https://github.com/AlexeyAB/Yolo_mark.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
+        'name' = 'vcpkg-tool_cenit'
+        'url' = 'https://github.com/cenit/vcpkg-tool.git'
+        'upstream' = 'https://github.com/microsoft/vcpkg-tool.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
+        'name' = 'FastIMU_cenit'
+        'url' = 'https://github.com/cenit/FastIMU.git'
+        'upstream' = 'https://github.com/LiquidCGS/FastIMU.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
+        'name' = 'RTDE_Python_Client_Library'
+        'url' = 'https://github.com/cenit/RTDE_Python_Client_Library.git'
+        'upstream' = 'https://github.com/UniversalRobots/RTDE_Python_Client_Library.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
+        'name' = 'MPU6x00'
+        'url' = 'https://github.com/cenit/MPU6x00.git'
+        'upstream' = 'https://github.com/Reefwing-Software/MPU6x00.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
+        'name' = 'llama-gpt_cenit'
+        'url' = 'https://github.com/cenit/llama-gpt.git'
+        'upstream' = 'https://github.com/getumbrel/llama-gpt.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'llm.c_cenit'
+        'url' = 'https://github.com/cenit/llm.c.git'
+        'upstream' = 'https://github.com/karpathy/llm.c.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'llama2.c_cenit'
+        'url' = 'https://github.com/cenit/llama2.c.git'
+        'upstream' = 'https://github.com/karpathy/llama2.c.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'MixedReality-HolographicRemoting-Samples'
+        'url' = 'https://github.com/cenit/MixedReality-HolographicRemoting-Samples.git'
+        'upstream' = 'https://github.com/microsoft/MixedReality-HolographicRemoting-Samples.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
         'name' = 'Propaga_cenit'
         'url' = 'https://github.com/cenit/Propaga.git'
         'upstream' = 'https://github.com/ALaDyn/Propaga.git'
@@ -112,6 +200,46 @@ $repositoriesCustomized = @(
         'name' = 'matconvnet_cenit'
         'url' = 'https://github.com/cenit/matconvnet.git'
         'upstream' = 'https://github.com/vlfeat/matconvnet.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'bin2header'
+        'url' = 'https://github.com/cenit/bin2header.git'
+        'upstream' = 'https://github.com/AntumDeluge/bin2header.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'Blob.js'
+        'url' = 'https://github.com/cenit/Blob.js.git'
+        'upstream' = 'https://github.com/eligrey/Blob.js.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'dotfiles'
+        'url' = 'https://github.com/cenit/dotfiles.git'
+        'upstream' = 'https://github.com/mathiasbynens/dotfiles.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
+    },
+    @{
+        'name' = 'Aravis-OpenCV-Wrapper'
+        'url' = 'https://github.com/cenit/Aravis-OpenCV-Wrapper.git'
+        'upstream' = 'https://github.com/kushalvyas/Aravis-OpenCV-Wrapper.git'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
+        'skip' = $false
+    },
+    @{
+        'name' = 'Microsoft-MPI'
+        'url' = 'https://github.com/cenit/Microsoft-MPI.git'
+        'upstream' = 'https://github.com/microsoft/Microsoft-MPI.git'
         'local_branch' = 'master'
         'upstream_branch' = 'master'
         'skip' = $false
@@ -275,6 +403,48 @@ $repositoriesCloned = @(
 
 $repositoriesClonedCenit = @(
     @{
+        'name' = 'coulomb_oscillators'
+        'url' = 'https://github.com/cenit/coulomb_oscillators.git'
+        'upstream' = 'https://github.com/locuoco/coulomb_oscillators.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'openMVG'
+        'url' = 'https://github.com/cenit/openMVG.git'
+        'upstream' = 'https://github.com/openMVG/openMVG.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'elmerfem'
+        'url' = 'https://github.com/cenit/elmerfem.git'
+        'upstream' = 'https://github.com/ElmerCSC/elmerfem.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'BBAPI'
+        'url' = 'https://github.com/cenit/BBAPI.git'
+        'upstream' = 'https://github.com/Beckhoff/BBAPI.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'BBAPI'
+        'url' = 'https://github.com/cenit/PoissonRecon.git'
+        'upstream' = 'https://github.com/mkazhdan/PoissonRecon.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'openeb'
+        'url' = 'https://github.com/cenit/openeb.git'
+        'upstream' = 'https://github.com/prophesee-ai/openeb.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'nbody'
+        'url' = 'https://github.com/cenit/nbody.git'
+        'upstream' = 'https://github.com/thegtproject/nbody.git'
+        'skip' = $false
+    },
+    @{
         'name' = 'Multitarget-tracker'
         'url' = 'https://github.com/cenit/Multitarget-tracker.git'
         'upstream' = 'https://github.com/Smorodov/Multitarget-tracker.git'
@@ -302,6 +472,24 @@ $repositoriesClonedCenit = @(
         'name' = 'azure-batch-apps-blender'
         'url' = 'https://github.com/cenit/azure-batch-apps-blender.git'
         'upstream' = 'https://github.com/Azure/azure-batch-apps-blender.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'doxygen'
+        'url' = 'https://github.com/cenit/doxygen.git'
+        'upstream' = 'https://github.com/doxygen/doxygen.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'exafmm'
+        'url' = 'https://github.com/cenit/exafmm.git'
+        'upstream' = 'https://github.com/exafmm/exafmm.git'
+        'skip' = $false
+    },
+    @{
+        'name' = 'Urti-2d'
+        'url' = 'https://github.com/cenit/Urti-2d.git'
+        'upstream' = 'https://github.com/GabrieleCalarota/Urti-2d.git'
         'skip' = $false
     },
     @{
