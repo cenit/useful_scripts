@@ -1,6 +1,10 @@
 #!/usr/bin/env pwsh
 
-$version = "1.1.1"
+param(
+    [string]$onlyThisRepo = ""
+)
+
+$version = "1.2.0"
 Write-Host "Running setup_update_forks.ps1 version $version" -ForegroundColor Green
 
 $repositoriesCustomized = @(
@@ -514,6 +518,12 @@ function Update-Repo ($repo_name, $local_branch, $upstream_branch) {
     }
 }
 
+if ($onlyThisRepo -ne "") {
+    $repositoriesCustomized = $repositoriesCustomized | Where-Object { $_.name -eq $onlyThisRepo }
+    $repositoriesCloned = $repositoriesCloned | Where-Object { $_.name -eq $onlyThisRepo }
+    $repositoriesClonedCenit = $repositoriesClonedCenit | Where-Object { $_.name -eq $onlyThisRepo }
+}
+
 foreach ($repo in $repositoriesCustomized) {
     if ($($repo.skip)) {
         Write-Host "Skipping --- $($repo.name)" -ForegroundColor Yellow
@@ -581,38 +591,39 @@ foreach ($repo in $repositoriesClonedCenit) {
 }
 
 # Special case for darknet
-if (!(Test-Path "darknet_cenit")) {
-    git clone https://github.com/cenit/darknet.git darknet_cenit
-    if (Test-Path darknet_cenit) {
-        Set-Location -Path darknet_cenit
-        git remote add upstream_pj https://github.com/pjreddie/darknet.git
-        git checkout master
-        git fetch upstream_pj
-        git merge upstream_pj/master
-        git push
-        git remote add upstream_ax https://github.com/AlexeyAB/darknet.git
-        git checkout dev/alexey/master
-        git fetch upstream_ax
-        git merge upstream_ax/master
-        git push
-        git checkout master
-        Set-Location -Path ..
-    } else {
-        Write-Output "Failed cloning --- $($repo.name)" -ForegroundColor Red
-    }
+if (($onlyThisRepo -eq "darknet_cenit") -or ($onlyThisRepo -eq "")) {
+  if (!(Test-Path "darknet_cenit")) {
+      git clone https://github.com/cenit/darknet.git darknet_cenit
+      if (Test-Path darknet_cenit) {
+          Set-Location -Path darknet_cenit
+          git remote add upstream_pj https://github.com/pjreddie/darknet.git
+          git checkout master
+          git fetch upstream_pj
+          git merge upstream_pj/master
+          git push
+          git remote add upstream_ax https://github.com/AlexeyAB/darknet.git
+          git checkout dev/alexey/master
+          git fetch upstream_ax
+          git merge upstream_ax/master
+          git push
+          git checkout master
+          Set-Location -Path ..
+      } else {
+          Write-Output "Failed cloning --- $($repo.name)" -ForegroundColor Red
+      }
+  }
+  else {
+      Set-Location -Path "darknet_cenit"
+      git checkout "master"
+      git fetch "upstream_pj"
+      git merge "upstream_pj/master"
+      git push
+      git checkout "dev/alexey/master"
+      git fetch "upstream_ax"
+      git merge "upstream_ax/master"
+      git push
+      git checkout "master"
+      Set-Location -Path ..
+  }
 }
-else {
-    Set-Location -Path "darknet_cenit"
-    git checkout "master"
-    git fetch "upstream_pj"
-    git merge "upstream_pj/master"
-    git push
-    git checkout "dev/alexey/master"
-    git fetch "upstream_ax"
-    git merge "upstream_ax/master"
-    git push
-    git checkout "master"
-    Set-Location -Path ..
-}
-
 Write-Host "Finished running setup_update_forks.ps1" -ForegroundColor Green
