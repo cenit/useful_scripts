@@ -6,7 +6,7 @@ param(
 )
 
 $version = "0.1"
-Write-Host "Running setup_update_forks.ps1 version $version" -ForegroundColor Green
+Write-Host "Running update_all_repos.ps1 version $version" -ForegroundColor Green
 
 if (-not $rootDirectory) {
     $rootDirectory = Get-Location
