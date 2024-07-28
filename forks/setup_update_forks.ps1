@@ -266,6 +266,12 @@ $repositoriesCloned = @(
         'skip' = $false
     },
     @{
+        'name' = 'PEPC'
+        'url' = 'https://github.com/ALaDyn/pepc.git'
+        'upstream' = 'https://gitlab.jsc.fz-juelich.de/SLPP/pepc/pepc.git'
+        'skip' = $false
+    },
+    @{
         'name' = 'picongpu'
         'url' = 'https://github.com/ALaDyn/picongpu.git'
         'upstream' = 'https://github.com/ComputationalRadiationPhysics/picongpu.git'
