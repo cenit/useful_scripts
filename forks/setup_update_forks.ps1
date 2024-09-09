@@ -108,8 +108,8 @@ $repositoriesCustomized = @(
         'name' = 'Yolo_mark'
         'url' = 'https://github.com/cenit/Yolo_mark.git'
         'upstream' = 'https://github.com/AlexeyAB/Yolo_mark.git'
-        'local_branch' = 'main'
-        'upstream_branch' = 'main'
+        'local_branch' = 'master'
+        'upstream_branch' = 'master'
         'skip' = $false
     },
     @{
@@ -437,7 +437,7 @@ $repositoriesClonedCenit = @(
         'skip' = $false
     },
     @{
-        'name' = 'BBAPI'
+        'name' = 'PoissonRecon'
         'url' = 'https://github.com/cenit/PoissonRecon.git'
         'upstream' = 'https://github.com/mkazhdan/PoissonRecon.git'
         'skip' = $false
@@ -531,6 +531,7 @@ if ($onlyThisRepo -ne "") {
 }
 
 foreach ($repo in $repositoriesCustomized) {
+    Write-Host "Processing $($repo.name)" -ForegroundColor Cyan
     if ($($repo.skip)) {
         Write-Host "Skipping --- $($repo.name)" -ForegroundColor Yellow
         continue
@@ -546,7 +547,7 @@ foreach ($repo in $repositoriesCustomized) {
             git push
             Set-Location -Path ..
         } else {
-            Write-Output "Failed cloning --- $($repo.name)" -ForegroundColor Red
+            Write-Host "Failed cloning --- $($repo.name)" -ForegroundColor Red
         }
     }
     else {
@@ -555,6 +556,7 @@ foreach ($repo in $repositoriesCustomized) {
 }
 
 foreach ($repo in $repositoriesCloned) {
+    Write-Host "Processing $($repo.name)" -ForegroundColor Cyan
     if ($($repo.skip)) {
         Write-Host "Skipping --- $($repo.name)" -ForegroundColor Yellow
         continue
@@ -569,13 +571,14 @@ foreach ($repo in $repositoriesCloned) {
             git push --mirror
             Set-Location ..
         } else {
-            Write-Output "Failed cloning --- $($repo.name)" -ForegroundColor Red
+            Write-Host "Failed cloning --- $($repo.name)" -ForegroundColor Red
         }
     }
     Remove-Item -Recurse -Force $($repo.name) -ErrorAction Ignore
 }
 
 foreach ($repo in $repositoriesClonedCenit) {
+    Write-Host "Processing $($repo.name)" -ForegroundColor Cyan
     if ($($repo.skip)) {
         Write-Host "Skipping --- $($repo.name)" -ForegroundColor Yellow
         continue
@@ -590,14 +593,15 @@ foreach ($repo in $repositoriesClonedCenit) {
             git push --mirror
             Set-Location ..
         } else {
-            Write-Output "Failed cloning --- $($repo.name)" -ForegroundColor Red
+            Write-Host "Failed cloning --- $($repo.name)" -ForegroundColor Red
         }
     }
     Remove-Item -Recurse -Force "$($repo.name)_cenit" -ErrorAction Ignore
 }
 
 # Special case for darknet
-if (($onlyThisRepo -eq "darknet_cenit") -or ($onlyThisRepo -eq "")) {
+if (($onlyThisRepo -eq "") -or ($onlyThisRepo -eq "")) {
+    Write-Host "Processing darknet_cenit" -ForegroundColor Cyan
   if (!(Test-Path "darknet_cenit")) {
       git clone https://github.com/cenit/darknet.git darknet_cenit
       if (Test-Path darknet_cenit) {
@@ -615,7 +619,7 @@ if (($onlyThisRepo -eq "darknet_cenit") -or ($onlyThisRepo -eq "")) {
           git checkout master
           Set-Location -Path ..
       } else {
-          Write-Output "Failed cloning --- $($repo.name)" -ForegroundColor Red
+          Write-Host "Failed cloning --- $($repo.name)" -ForegroundColor Red
       }
   }
   else {
