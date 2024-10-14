@@ -600,7 +600,7 @@ foreach ($repo in $repositoriesClonedCenit) {
 }
 
 # Special case for darknet
-if (($onlyThisRepo -eq "") -or ($onlyThisRepo -eq "")) {
+if (($onlyThisRepo -eq "") -or ($onlyThisRepo -eq "darknet_cenit")) {
     Write-Host "Processing darknet_cenit" -ForegroundColor Cyan
   if (!(Test-Path "darknet_cenit")) {
       git clone https://github.com/cenit/darknet.git darknet_cenit
