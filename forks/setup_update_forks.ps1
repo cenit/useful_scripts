@@ -255,6 +255,14 @@ $repositoriesCustomized = @(
         'local_branch' = 'develop'
         'upstream_branch' = 'develop'
         'skip' = $false
+    },
+    @{
+        'name' = 'docling'
+        'url' = 'https://github.com/cenit/docling.git'
+        'upstream' = 'https://github.com/DS4SD/docling.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
     }
 )
 
