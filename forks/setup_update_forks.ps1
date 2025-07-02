@@ -249,14 +249,6 @@ $repositoriesCustomized = @(
         'skip' = $false
     },
     @{
-        'name' = 'boost_math_cenit'
-        'url' = 'https://github.com/cenit/math.git'
-        'upstream' = 'https://github.com/boostorg/math.git'
-        'local_branch' = 'develop'
-        'upstream_branch' = 'develop'
-        'skip' = $false
-    },
-    @{
         'name' = 'docling'
         'url' = 'https://github.com/cenit/docling.git'
         'upstream' = 'https://github.com/DS4SD/docling.git'
