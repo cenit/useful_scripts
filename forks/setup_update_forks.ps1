@@ -263,6 +263,14 @@ $repositoriesCustomized = @(
         'local_branch' = 'main'
         'upstream_branch' = 'main'
         'skip' = $false
+    },
+    @{
+        'name' = 'UltraVNC'
+        'url' = 'https://github.com/cenit/UltraVNC.git'
+        'upstream' = 'https://github.com/ultravnc/UltraVNC.git'
+        'local_branch' = 'main'
+        'upstream_branch' = 'main'
+        'skip' = $false
     }
 )
 
