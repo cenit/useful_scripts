@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  schedule:
+    # Weekly build (Mondays 06:00 UTC) - catches PSScriptAnalyzer/Pester module drift
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: PSScriptAnalyzer
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (-not (Get-Module -ListAvailable PSScriptAnalyzer)) {
+            Install-Module PSScriptAnalyzer -Force -Scope CurrentUser -SkipPublisherCheck
+          }
+
+      - name: Analyze
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $results = Invoke-ScriptAnalyzer -Path "$env:GITHUB_WORKSPACE" -Recurse `
+            -Settings "$env:GITHUB_WORKSPACE/PSScriptAnalyzerSettings.psd1"
+          if ($results) {
+            $results | Format-Table -AutoSize | Out-String | Write-Host
+            throw "PSScriptAnalyzer reported $($results.Count) finding(s)."
+          }
+          Write-Host 'PSScriptAnalyzer clean.'
+
+  test:
+    name: Pester (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install Pester >=5.0
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (-not (Get-Module -ListAvailable Pester | Where-Object Version -ge '5.0')) {
+            Install-Module Pester -MinimumVersion 5.0 -Force -Scope CurrentUser -SkipPublisherCheck
+          }
+
+      # tests/Lint.Tests.ps1 calls Invoke-ScriptAnalyzer, so the test job needs the
+      # module too - it must not depend on the hosted image happening to ship it.
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (-not (Get-Module -ListAvailable PSScriptAnalyzer)) {
+            Install-Module PSScriptAnalyzer -Force -Scope CurrentUser -SkipPublisherCheck
+          }
+
+      - name: Run Pester
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Import-Module Pester -MinimumVersion 5.0 -Force
+          $cfg = New-PesterConfiguration
+          $cfg.Run.Path = "$env:GITHUB_WORKSPACE/tests"
+          $cfg.Run.Exit = $true
+          $cfg.TestResult.Enabled = $true
+          $cfg.TestResult.OutputFormat = 'NUnitXml'
+          $cfg.TestResult.OutputPath = "$env:RUNNER_TEMP/pester-${{ matrix.os }}.xml"
+          $cfg.CodeCoverage.Enabled = $true
+          $cfg.CodeCoverage.Path = @(
+            "$env:GITHUB_WORKSPACE/Modules/ScriptUtils/Public/*.ps1",
+            "$env:GITHUB_WORKSPACE/Modules/ScriptUtils/Private/*.ps1"
+          )
+          $cfg.CodeCoverage.OutputPath = "$env:RUNNER_TEMP/coverage-${{ matrix.os }}.xml"
+          Invoke-Pester -Configuration $cfg
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pester-${{ matrix.os }}
+          path: |
+            ${{ runner.temp }}/pester-${{ matrix.os }}.xml
+            ${{ runner.temp }}/coverage-${{ matrix.os }}.xml

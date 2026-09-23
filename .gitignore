@@ -1,3 +1,6 @@
 .DS_Store
 *.tar.gz
 */git-*/
+.claude/
+*.log
+custom-ca.crt
