@@ -34,7 +34,7 @@ Installing is optional — every `.ps1` here runs standalone by path, whether or
 | Script | Purpose |
 |---|---|
 | `Install.ps1` | Adds or removes the ScriptUtils import block from your PowerShell profile |
-| `git/Update-CcmRefs.ps1` | Bump the CCM submodule pointer across every project checkout under a root directory |
+| `git/Update-CcmRefs.ps1` | Bump the CCM (cenit CMake modules) submodule pointer across every project checkout under a root directory |
 | `git/Update-AllRepos.ps1` | Fetch and fast-forward every git repository in a directory; returns checkouts stranded on a squash-merged, upstream-deleted branch to their default branch (`-PruneMergedBranches` also deletes the stale branch) |
 | `git/Update-ForkedRepos.ps1` | Clone or refresh the forks/mirrors defined in `git/forks.json` (see below) |
 | `azuredevops/Export-BuildValidationReport.ps1` | Organisation-wide report of repositories missing PR build validation, optionally to CSV |
